@@ -4,14 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manrope game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/function.js" defer></script>
     <script src="js/main.js" defer></script>
   </head>
   <body>
     <main>
       <div class="top">
-        <div class="left"></div>
-        <div class="right">11</div>
+        <div class="left">
+          <div class="word-space"><p id="js-word"></p></div>
+          <div class="letter-used">
+            <div>A</div>
+            <div>B</div>
+          </div>
+          <div class="loose-win"><p>en cours de jeu</p></div>
+        </div>
+        <div class="right anton-regular"><p>11</p></div>
       </div>
       <div class="bottom">
         <div><button id="A" class="letter-button">A</button></div>

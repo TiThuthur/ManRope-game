@@ -1,9 +1,24 @@
-const wordList = ["jambon", "saucisson", "ordinateur", "ecran"];
+const wordSpace = document.getElementById("js-word");
+const wordList = ["saucisson"];
+// const wordList = [
+//   "jambon",
+//   "saucisson",
+//   "ordinateur",
+//   "ecran",
+//   "pain",
+//   "programmation",
+// ];
 
-const getWord = (wordList) => {
-  const index = Math.floor(Math.random() * wordList.length);
-  console.log(index);
-  return wordList[index];
-};
+const word = Array.from(getWord(wordList));
 
-console.log(getWord(wordList));
+let hideWord = hideLetter(word);
+
+checkWord("s", word);
+
+let indice = [];
+let index;
+while(index!=1) {
+indice.push(index);
+index = word.indexOf("s", index +1);
+}
+console.log(indice);
