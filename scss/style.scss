@@ -1,0 +1,45 @@
+$Primary: rgba(104, 248, 12, 1);
+$Secondary: rgba(108, 251, 236, 1);
+$Accent: rgba(69, 188, 250, 1);
+$Background: #f7fff2;
+$Text: #112401;
+
+body {
+  color: $Text;
+  background-color: $Background;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  .top {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+    .left,
+    .right {
+      border-radius: 1em;
+    }
+    .left {
+      background-color: $Secondary;
+      width: 35vw;
+      height: 45vh;
+      border: $Text 1px solid;
+    }
+    .right {
+      border: $Text 1px solid;
+      background-color: $Primary;
+      width: 35vw;
+      height: 45vh;
+    }
+  }
+  .bottom {
+    border-radius: 1em;
+    border: $Text 1px solid;
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+  }
+}
