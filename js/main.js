@@ -22,8 +22,8 @@ const getWord = (wordList) => {
 const hideLetter = (word) => {
   const hideWord = Array.from(word);
   console.log(word);
-  for (const index in hideWord) {
-    hideWord[index] = "_";
+  for (let i = 0; i < hideWord.length; i++) {
+    hideWord[i] = "_";
   }
   console.log(hideWord);
   return hideWord;
@@ -77,21 +77,21 @@ for (const input of lettersInputs) {
       score -= 1;
       scoreElement.innerText = score;
     }
-console.log(hideWord)
-console.log(word)
-console.log(word === hideWord)
+    console.log(hideWord);
+    console.log(word);
+    console.log(word === hideWord);
     if (score <= 0) {
       for (const key in lettersInputs) {
         /**désactivation de bouton dans @lettersInputs en cas de défaite */
         lettersInputs[key].disabled = true;
       }
       messageElement.innerText = "Vous avez perdu";
-    }else if (word === hideWord) {
+    } else if (word === hideWord) {
       for (const key in lettersInputs) {
         /**désactivation de bouton dans @lettersInputs en cas de défaite */
         lettersInputs[key].disabled = true;
       }
-      messageElement.innerText="Vous avez gagné !"
+      messageElement.innerText = "Vous avez gagné !";
     }
   });
 }
