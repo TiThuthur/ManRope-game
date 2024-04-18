@@ -49,21 +49,23 @@ const letterList = [];
 const word = Array.from(getWord(wordList));
 
 let hideWord = hideLetter(word);
-console.log(word.join(""));
 renderWord(hideWord);
 
 for (const input of lettersInputs) {
   input.addEventListener("click", (e) => {
     let letter = e.target.id.toLowerCase();
+
     const indice = checkWord(letter, word);
-    console.log(indice)
-    for (const i of indice) {
-      hideWord[i] = letter;
+
+    if (indice.length !== 0) {
+      for (const i of indice) {
+        hideWord[i] = letter;
+      }
+      messageElement.innerText = "vous avez trouvé une lettre.";
     }
-    if (indice.length!==0) {
-      messageElement.innerText="Bravo !"
-    }
+
     renderWord(hideWord);
+
     if (letterList.find((element) => element === letter) === undefined) {
       happendLetter(letter);
       letterList.push(letter);
@@ -71,17 +73,25 @@ for (const input of lettersInputs) {
 
     if (word.find((element) => element === letter) === undefined) {
       /**gestion du @score */
-      messageElement.innerText="Echec"
+      messageElement.innerText = "moins 1 point.";
       score -= 1;
       scoreElement.innerText = score;
     }
-
+console.log(hideWord)
+console.log(word)
+console.log(word === hideWord)
     if (score <= 0) {
       for (const key in lettersInputs) {
         /**désactivation de bouton dans @lettersInputs en cas de défaite */
         lettersInputs[key].disabled = true;
       }
       messageElement.innerText = "Vous avez perdu";
+    }else if (word === hideWord) {
+      for (const key in lettersInputs) {
+        /**désactivation de bouton dans @lettersInputs en cas de défaite */
+        lettersInputs[key].disabled = true;
+      }
+      messageElement.innerText="Vous avez gagné !"
     }
   });
 }
